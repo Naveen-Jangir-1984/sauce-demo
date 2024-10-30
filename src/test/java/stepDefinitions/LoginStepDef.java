@@ -9,7 +9,7 @@ import io.cucumber.java.en.When;
 import pages.Home;
 import pages.Inventory;
 
-public class Login {
+public class LoginStepDef {
 	
 	private Home home = new Home(Browser.getDriverInstance());
 	private Inventory inventory = new Inventory(Browser.getDriverInstance());

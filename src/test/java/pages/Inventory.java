@@ -7,6 +7,7 @@ public class Inventory {
 	private WebDriver driver;
 	
 	private By appLogoTxt = By.cssSelector(".app_logo");
+	private By itemsList = By.cssSelector(".inventory_item");
 	
 	public Inventory(WebDriver driver) {
 		this.driver = driver;
@@ -14,5 +15,9 @@ public class Inventory {
 	
 	public String getAppLogoText() {
 		return driver.findElement(appLogoTxt).getText();
+	}
+	
+	public int getItemsListCount() {
+		return driver.findElements(itemsList).size();
 	}
 }

@@ -9,8 +9,8 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
     
 @CucumberOptions(
-	tags = "@valid", 
-	features = {"src/test/resources/features/Login.feature"}, 
+	tags = "", 
+	features = {"src/test/resources/features"}, 
 	glue = {"stepDefinitions"}
 )
 

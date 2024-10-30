@@ -1,6 +1,7 @@
 C:\Users\206243\workspace\SauceDemo\src\test\java\config\Browser.java
 C:\Users\206243\workspace\SauceDemo\src\test\java\utility\Reusable.java
 C:\Users\206243\workspace\SauceDemo\src\test\java\runner\TestRunner.java
-C:\Users\206243\workspace\SauceDemo\src\test\java\stepDefinitions\Login.java
 C:\Users\206243\workspace\SauceDemo\src\test\java\pages\Home.java
 C:\Users\206243\workspace\SauceDemo\src\test\java\pages\Inventory.java
+C:\Users\206243\workspace\SauceDemo\src\test\java\stepDefinitions\LoginStepDef.java
+C:\Users\206243\workspace\SauceDemo\src\test\java\stepDefinitions\InventoryStepDef.java

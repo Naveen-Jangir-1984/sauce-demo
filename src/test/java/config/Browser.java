@@ -21,7 +21,7 @@ public class Browser {
 				driver.set(new EdgeDriver());
 				break;
 			default:
-				Assert.assertFalse(driver.get() == null, browser + "driver not initilized!");
+				Assert.assertFalse(driver.get() == null,  "Unable to initialize " + browser.toUpperCase() + " !");
 		}
 	}
 	
