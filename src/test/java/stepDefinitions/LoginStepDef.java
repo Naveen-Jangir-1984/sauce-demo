@@ -11,8 +11,13 @@ import pages.Inventory;
 
 public class LoginStepDef {
 	
-	private Home home = new Home(Browser.getDriverInstance());
-	private Inventory inventory = new Inventory(Browser.getDriverInstance());
+	private Home home;
+	private Inventory inventory;
+	
+	public LoginStepDef() {
+		home = new Home(Browser.getDriverInstance());
+		inventory = new Inventory(Browser.getDriverInstance());
+	}
 	
 	@Given("^user is on the login page$")
 	public void userIsOnTheLoginPage() {

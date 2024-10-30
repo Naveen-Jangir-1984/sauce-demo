@@ -9,6 +9,7 @@ import utility.Reusable;
 
 public class Home {
 	private WebDriver driver;
+	private Reusable reusable;
 	
 	private int customWait = 30;
 	private String url = "https://www.saucedemo.com/";
@@ -19,6 +20,7 @@ public class Home {
 	
 	public Home(WebDriver driver) {
 		this.driver = driver;
+		reusable = new Reusable();
 	}
 	
 	public void launchUrl() {
@@ -27,18 +29,18 @@ public class Home {
 	}
 	
 	public void enterUsername(String username) {
-		Reusable.waitClearAndSendKeys(driver, usernameInp, username);
+		reusable.waitClearAndSendKeys(driver, usernameInp, username);
 	}
 	
 	public void enterPassword(String password) {
-		Reusable.waitClearAndSendKeys(driver, passwordInp, password);
+		reusable.waitClearAndSendKeys(driver, passwordInp, password);
 	}
 	
 	public void clickLogin() {
-		Reusable.waitAndClick(driver, loginBtn);
+		reusable.waitAndClick(driver, loginBtn);
 	}
 	
 	public String getErrorText() {
-		return driver.findElement(errorTxt).getText();
+		return reusable.waitAndGetText(driver, errorTxt);
 	}
 }

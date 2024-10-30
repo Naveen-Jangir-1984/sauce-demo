@@ -8,7 +8,11 @@ import pages.Inventory;
 
 public class InventoryStepDef {
 	
-	private Inventory inventory = new Inventory(Browser.getDriverInstance());
+	private Inventory inventory;
+	
+	public InventoryStepDef() {
+		inventory = new Inventory(Browser.getDriverInstance());
+	}
 	
 	@Then("^number of items displayed are ([^\"]*)$")
 	public void numberOfItemsDisplayedAre(String expected) {
