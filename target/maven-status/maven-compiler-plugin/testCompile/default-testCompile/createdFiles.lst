@@ -1,4 +1,6 @@
+stepDefinitions\LoginStepDef.class
 utility\Reusable.class
+stepDefinitions\InventoryStepDef.class
 config\Browser.class
 pages\Home.class
 runner\TestRunner.class
