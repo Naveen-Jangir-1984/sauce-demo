@@ -23,7 +23,7 @@ public class InventoryStepDef {
 		Assert.assertTrue(Integer.parseInt(expected) == inventory.getItemsListCount());
 	}
 	
-	@When("^user selects filter option as ([^\"]*)$")
+	@When("^user selects filter as ([^\"]*)$")
 	public void userSelectsFilterOptionAs(String option) {
 		switch(option) {
 			case "a to z":
@@ -37,8 +37,13 @@ public class InventoryStepDef {
 		}	
 	}
 	
-	@Then("^items are displayed in ([^\"]*) order$")
-	public void itemsAreDisplayedInOrder(String order) {
+	@When("^user clicks on add to cart button for ([^\"]*)$")
+	public void userSelectsProductAs(String product) {
+		inventory.clickAddToCartButton(product);
+	}
+	
+	@Then("^products are displayed in ([^\"]*) order$")
+	public void productssAreDisplayedInOrder(String order) {
 		switch(order) {
 			case "a to z":
 			case "z to a":
@@ -49,5 +54,11 @@ public class InventoryStepDef {
 				Assert.assertTrue(reusable.isPriceListSorted(inventory.getPriceList(), order));
 				break;
 		}
+	}
+	
+	@Then("^([^\"]*) is displayed on the cart$")
+	public void isDisplayedOnTheCart(String product) {
+		inventory.clickCartLink();
+		Assert.assertTrue(inventory.getNameList().contains("Sauce Labs " + product));
 	}
 }

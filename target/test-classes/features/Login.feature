@@ -6,11 +6,11 @@ Feature: Login
 		When user enters <username> as username
 		And user enters <password> as password
 		And user clicks login button
-		Then user is able to see <logoText>
+		Then user is able to see <title>
 	
 	Examples:
-		| username      | password     | logoText  |
-		| standard_user | secret_sauce | Swag Labs |
+		| username      | password     | title     |
+		| standard_user | secret_sauce | Products  |
 	
 	@invalid
 	Scenario Outline: With Invalid Credentials
@@ -18,9 +18,9 @@ Feature: Login
 		When user enters <username> as username
 		And user enters <password> as password
 		And user clicks login button
-		Then user gets an error which contains <errorText>
+		Then user gets an error which contains <error>
 	
 	Examples:
-		| username        | password     | errorText    |
+		| username        | password     | error        |
 		| standard_user   | secret_sauc  | do not match |
     | locked_out_user | secret_sauce | locked       |

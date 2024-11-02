@@ -41,7 +41,7 @@ public class LoginStepDef {
 	
 	@Then("^user is able to see ([^\"]*)$")
 	public void userIsLoggedIn(String expected) {
-		Assert.assertTrue(expected.equalsIgnoreCase(inventory.getAppLogoText()));		
+		Assert.assertTrue(expected.equalsIgnoreCase(inventory.getTitleText()));		
 	}
 	
 	@Then("^user gets an error which contains ([^\"]*)$")

@@ -28,6 +28,10 @@ public class Home {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(customWait));
 	}
 	
+	public boolean isUsernameVisible() {
+		return reusable.isVisible(driver, usernameInp);
+	}
+	
 	public void enterUsername(String username) {
 		reusable.waitClearAndSendKeys(driver, usernameInp, username);
 	}

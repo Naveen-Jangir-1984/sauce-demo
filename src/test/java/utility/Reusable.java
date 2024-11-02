@@ -14,23 +14,34 @@ public class Reusable {
 	private WebDriverWait wait;
 	private long customWait = 30;
 	
+	public boolean isVisible(WebDriver driver, By locator) {
+		boolean flag = false;
+		wait = new WebDriverWait(driver, Duration.ofSeconds(customWait));
+		flag = wait.until(ExpectedConditions.visibilityOfElementLocated(locator)) != null;
+		return flag;
+	}
+	
 	public void waitClearAndSendKeys(WebDriver driver, By locator, String text) {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(customWait));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-		driver.findElement(locator).clear();
-		driver.findElement(locator).sendKeys(text);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		element.clear();
+		element.sendKeys(text);
 	}
 	
 	public void waitAndClick(WebDriver driver, By locator) {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(customWait));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-		driver.findElement(locator).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).click();
+	}
+	
+	public void waitAndClick(WebDriver driver, WebElement element) {
+		wait = new WebDriverWait(driver, Duration.ofSeconds(customWait));
+		wait.until(ExpectedConditions.visibilityOf(element)).click();;
 	}
 	
 	public String waitAndGetText(WebDriver driver, By locator) {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(customWait));
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-		return element.getText();
+		return element.getText().trim();
 	}
 	
 	public List<WebElement> waitAndGetWebElementsList(WebDriver driver, By locator) {
