@@ -21,5 +21,6 @@ Feature: Login
 		Then user gets an error which contains <errorText>
 	
 	Examples:
-		| username      | password     | errorText    |
-		| standard_user | secret_sauc  | do not match |
+		| username        | password     | errorText    |
+		| standard_user   | secret_sauc  | do not match |
+    | locked_out_user | secret_sauce | locked       |
