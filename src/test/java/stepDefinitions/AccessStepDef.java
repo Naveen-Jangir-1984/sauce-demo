@@ -9,12 +9,12 @@ import io.cucumber.java.en.When;
 import pages.Home;
 import pages.Inventory;
 
-public class LoginStepDef {
+public class AccessStepDef {
 	
 	private Home home;
 	private Inventory inventory;
 	
-	public LoginStepDef() {
+	public AccessStepDef() {
 		home = new Home(Browser.getDriverInstance());
 		inventory = new Inventory(Browser.getDriverInstance());
 	}
@@ -39,6 +39,12 @@ public class LoginStepDef {
 		home.clickLogin();
 	}
 	
+	@When("^user clicks logout button$")
+	public void userClicksLogoutButton() {
+		inventory.clickSideBarButton();
+		inventory.clickLogoutButton();
+	}
+	
 	@Then("^user is able to see ([^\"]*)$")
 	public void userIsLoggedIn(String expected) {
 		Assert.assertTrue(expected.equalsIgnoreCase(inventory.getTitleText()));		
@@ -48,4 +54,9 @@ public class LoginStepDef {
 	public void userGetsAnError(String expected) {
 		Assert.assertTrue(home.getErrorText().contains(expected));
 	}
+	
+	@Then("^user logs out$")
+	public void userLogsOut() {
+		Assert.assertTrue(home.isUsernameVisible());
+	}	
 }
